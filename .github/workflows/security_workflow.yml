@@ -1,0 +1,23 @@
+name: 42Crunch API Security Audit
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - 'openapi.json'
+
+jobs:
+  run_42c_audit:
+    name: 42Crunch API Security Audit
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repo
+        uses: actions/checkout@v3
+
+      - name: 42crunch-static-api-testing
+        uses: 42crunch/api-security-audit-action-freemium@main
+        with:
+          github_token: "${{ secrets.USER_GITHUB_TOKEN }}"
+          openapi_file: "openapi.json"
