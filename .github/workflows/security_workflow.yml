@@ -20,4 +20,3 @@ jobs:
         uses: 42crunch/api-security-audit-action-freemium@main
         with:
           upload-to-code-scanning: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
