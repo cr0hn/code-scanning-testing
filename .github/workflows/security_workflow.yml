@@ -21,3 +21,4 @@ jobs:
         with:
           upload-to-code-scanning: true
           token: ${{ secrets.USER_GITHUB_TOKEN }}
+          enforce-sqg: true
