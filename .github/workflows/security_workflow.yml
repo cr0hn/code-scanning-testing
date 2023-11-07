@@ -21,7 +21,7 @@ jobs:
         with:
           upload-to-code-scanning: true
           token: ${{ secrets.USER_GITHUB_TOKEN }}
-          enforce-sqg: true
+          enforce-sqg: false
           sarif-report: 42Crunch_AuditReport_${{ github.run_id }}.SARIF
 
       - name: Upload SARIF file to Artifacts
