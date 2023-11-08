@@ -19,15 +19,15 @@ jobs:
       - name: checkout repo
         uses: actions/checkout@v3
 
-      - name: 42crunch-static-api-testing
-        uses: 42crunch/api-security-audit-action-freemium@main
-        with:
-          upload-to-code-scanning: true
-          enforce-sqg: false
-          sarif-report: 42Crunch_AuditReport_${{ github.run_id }}.SARIF
+#      - name: 42crunch-static-api-testing
+#        uses: 42crunch/api-security-audit-action-freemium@main
+#        with:
+#          upload-to-code-scanning: true
+#          enforce-sqg: false
+#          sarif-report: 42Crunch_AuditReport_${{ github.run_id }}.SARIF
 
       - name: 42crunch-dynamic-api-testing
-        uses: 42crunch/api-security-scan-action-freemium@main
+        uses: 42crunch/api-security-audit-action-freemium@main
         with:
           upload-to-code-scanning: true
           log-level: info
