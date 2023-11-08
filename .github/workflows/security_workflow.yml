@@ -23,12 +23,24 @@ jobs:
         uses: 42crunch/api-security-audit-action-freemium@main
         with:
           upload-to-code-scanning: true
-#          token: ${{ secrets.USER_GITHUB_TOKEN }}
           enforce-sqg: false
           sarif-report: 42Crunch_AuditReport_${{ github.run_id }}.SARIF
+
+      - name: 42crunch-dynamic-api-testing
+        uses: 42crunch/api-security-scan-action-freemium@main
+        with:
+          upload-to-code-scanning: true
+          log-level: info
+          sarif-report: 42Crunch_ScanReport_${{ github.run_id }}.SARIF
 
       - name: Upload SARIF file to Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: 42Crunch_AuditReport_${{ github.run_id }}.SARIF
           path: 42Crunch_AuditReport_${{ github.run_id }}.SARIF
+
+      - name: Upload SARIF file to Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: 42Crunch_ScanReport_${{ github.run_id }}.SARIF
+          path: 42Crunch_ScanReport_${{ github.run_id }}.SARIF
