@@ -39,9 +39,16 @@ jobs:
           upload-to-code-scanning: true
           log-level: info
           sarif-report: 42Crunch_ScanReport_${{ github.run_id }}.SARIF
+          audit-reports-dir: 42Crunch_AuditReport_${{ github.run_id }}
 
       - name: Upload SARIF file to Artifacts
         uses: actions/upload-artifact@v2
         with:
           name: 42Crunch_ScanReport_${{ github.run_id }}.SARIF
           path: 42Crunch_ScanReport_${{ github.run_id }}.SARIF
+
+      - name: Upload Audit Reports to Artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: 42Crunch_ScanReports
+          path: 42Crunch_AuditReport_${{ github.run_id }}/
